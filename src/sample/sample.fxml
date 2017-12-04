@@ -17,6 +17,8 @@
 <?import java.lang.String ?>
 
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Spinner?>
 <GridPane fx:controller="sample.Controller" xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
     <Button GridPane.rowIndex="0" GridPane.columnIndex="0" text="click me">
         <graphic>
@@ -87,6 +89,11 @@
             <String fx:value="cb 5"/>
         </value>
     </ChoiceBox>
+    <Slider GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.columnSpan="4"
+            min="0" max="100" showTickLabels="true" showTickMarks="true" snapToTicks="true"
+            majorTickUnit="10" minorTickCount="2"/>
+    <Spinner GridPane.rowIndex="2" GridPane.columnIndex="4" min="0" max="100"/>
+
 
 
 </GridPane>
