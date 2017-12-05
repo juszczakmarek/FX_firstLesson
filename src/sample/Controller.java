@@ -1,5 +1,6 @@
 package sample;
 
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -37,8 +38,17 @@ public class Controller {
             @Override
             public void run() {
                 try {
+                    String s = Platform.isFxApplicationThread() ? "UI Thread" : "Background";
+                    System.out.println("I'm going to sleep on the: " + s);
                     Thread.sleep(5000);
-                    ourLabel.setText("we did something");
+                    Platform.runLater(new Runnable() {
+                        @Override
+                        public void run() {
+                            String s = Platform.isFxApplicationThread() ? "UI Thread" : "Background";
+                            System.out.println("I'm updating the label on the: " + s);
+                            ourLabel.setText("we did something");
+                        }
+                    });
                 } catch (InterruptedException event) {
                     //don't care about it
                 }
